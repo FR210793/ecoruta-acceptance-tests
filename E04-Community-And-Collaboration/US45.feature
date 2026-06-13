@@ -1,5 +1,3 @@
-US45.feature
-
 Feature: Validación de reportes por administrador
 
 Como administrador de EcoRuta
