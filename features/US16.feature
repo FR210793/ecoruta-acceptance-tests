@@ -4,7 +4,7 @@ Como ciudadano consciente
 Quiero ver el índice AQI exacto de mi ubicación actual
 Para saber si el aire que respiro en este momento es seguro
 
-Scenario: Escenario 1: Consulta de aire actual
+Scenario: Consulta de aire actual
 Given que el usuario abre la aplicación en la calle
 And tiene el sensor GPS del celular activado
 When la pantalla principal termina de cargar
@@ -22,7 +22,7 @@ And usa colores universales según el nivel de riesgo
 # - Círculo visual con el nivel de calidad del aire
 # - Colores universales según el nivel de riesgo
 
-Scenario: Escenario 2: Cambio de ubicación
+Scenario: Cambio de ubicación
 Given que el usuario está en movimiento continuo
 And cruza hacia un distrito con más tráfico
 When el GPS detecta la nueva zona
@@ -38,7 +38,7 @@ And envía una notificación si la calidad del aire empeora
 # - Valor AQI actualizado automáticamente
 # - Notificación enviada si la calidad del aire empeora
 
-Scenario: Escenario 3: GPS desactivado
+Scenario: GPS desactivado
 Given que el usuario tiene la ubicación del celular apagada
 And abre la aplicación para consultar el aire
 When el sistema intenta cargar el dato

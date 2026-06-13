@@ -4,7 +4,7 @@ Como deportista urbano
 Quiero filtrar rutas evitando calles con alta humedad o neblina
 Para entrenar en condiciones ambientales óptimas
 
-Scenario: Escenario 1: Filtrar rutas por condiciones climáticas
+Scenario: Filtrar rutas por condiciones climáticas
 Given que el usuario busca una ruta
 And existen variaciones climáticas en diferentes zonas
 When aplica el filtro de condiciones climáticas
@@ -20,7 +20,7 @@ And oculta las rutas con condiciones adversas
 # - Rutas con condiciones climáticas favorables
 # - Rutas con condiciones adversas ocultadas
 
-Scenario: Escenario 2: Recomendación de rutas alternativas
+Scenario: Recomendación de rutas alternativas
 Given que una ruta presenta condiciones climáticas desfavorables
 And el usuario consulta opciones
 When el sistema analiza las condiciones
@@ -36,7 +36,7 @@ And prioriza aquellas con menor impacto climático
 # - Rutas alternativas sugeridas
 # - Priorización de rutas con menor impacto climático
 
-Scenario: Escenario 3: Falta de datos climáticos
+Scenario: Falta de datos climáticos
 Given que el usuario aplica filtros climáticos
 And no hay información disponible en algunas zonas
 When el sistema procesa la solicitud

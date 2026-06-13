@@ -4,7 +4,7 @@ Feature: Alerta de zona de construcción en la planificación
   Quiero recibir alertas sobre obras viales activas en mi trayecto
   Para evitar inhalar polvo y escombros
 
-  Scenario: Escenario 1: Advertencia de obra en ruta
+  Scenario: Advertencia de obra en ruta
     Given que hay una obra registrada en la ruta trazada
     And genera una alta densidad de partículas de polvo
     When el usuario selecciona esa vía
@@ -20,7 +20,7 @@ Feature: Alerta de zona de construcción en la planificación
     # - Alerta roja mostrada al usuario
     # - Advertencia de riesgo respiratorio inminente
 
-  Scenario: Escenario 2: Desvío automático
+  Scenario: Desvío automático
     Given que el usuario recibe la alerta de construcción
     And desea proteger sus vías respiratorias
     When presiona el botón de desviar ruta

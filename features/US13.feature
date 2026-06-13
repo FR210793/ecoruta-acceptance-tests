@@ -4,7 +4,7 @@ Como usuario que entrena diariamente
 Quiero guardar mis trayectos con mejor calidad de aire
 Para no tener que configurarlos desde cero todos los días
 
-Scenario: Escenario 1: Guardar nueva ruta favorita
+Scenario: Guardar nueva ruta favorita
 Given que el usuario termina un recorrido excelente
 And desea repetirlo en sus próximos entrenamientos
 When pulsa el botón guardar favorito
@@ -20,7 +20,7 @@ And lo almacena en su biblioteca personal
 # - Solicitud para asignar nombre a la ruta
 # - Ruta guardada en la biblioteca personal del usuario
 
-Scenario: Escenario 2: Acceder a ruta guardada
+Scenario: Acceder a ruta guardada
 Given que el usuario abre la aplicación
 And tiene rutas favoritas previamente guardadas
 When ingresa a la sección mis rutas
@@ -36,7 +36,7 @@ And ver si el aire sigue limpio ese día
 # - Ruta disponible para iniciar navegación con un solo clic
 # - Estado actualizado de la calidad del aire de la ruta
 
-Scenario: Escenario 3: Actualización de estado ambiental
+Scenario: Actualización de estado ambiental
 Given que el usuario selecciona una ruta guardada
 And justo hoy presenta niveles altos de esmog
 When intenta iniciar el trayecto

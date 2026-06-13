@@ -4,7 +4,7 @@ Como usuario preventivo
 Quiero consultar el pronóstico de la calidad del aire por horas
 Para planificar el mejor momento para realizar actividades al aire libre
 
-Scenario: Escenario 1: Visualización del pronóstico por horas
+Scenario: Visualización del pronóstico por horas
 Given que el usuario accede a la sección de calidad del aire
 And existen datos disponibles del pronóstico
 When selecciona la opción de pronóstico
@@ -20,7 +20,7 @@ And resalta los periodos con mejor calidad del aire
 # - Niveles de contaminación mostrados por horas
 # - Periodos con mejor calidad del aire resaltados
 
-Scenario: Escenario 2: Identificación de horarios no recomendados
+Scenario: Identificación de horarios no recomendados
 Given que el usuario consulta el pronóstico
 And existen periodos con alta contaminación
 When revisa la información
@@ -36,7 +36,7 @@ And recomienda evitar actividades en esos periodos
 # - Horarios de riesgo indicados por el sistema
 # - Recomendación para evitar actividades al aire libre en esos periodos
 
-Scenario: Escenario 3: Falta de conexión a internet
+Scenario: Falta de conexión a internet
 Given que el usuario no cuenta con conexión a internet
 And accede a la sección de pronóstico
 When el sistema intenta cargar los datos

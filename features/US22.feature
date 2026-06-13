@@ -4,7 +4,7 @@ Como usuario con limitaciones de datos móviles
 Quiero visualizar información simplificada
 Para reducir el consumo de datos
 
-Scenario: Escenario 1: Uso con internet muy lento
+Scenario: Uso con internet muy lento
 Given que el celular tiene poca señal o internet de baja velocidad
 And el usuario intenta ver los mapas de la ciudad
 When la pantalla demora más de diez segundos en cargar
@@ -21,7 +21,7 @@ And muestra solo los números y datos más importantes
 # - Información simplificada mostrada al usuario
 # - Números y datos principales visibles en pantalla
 
-Scenario: Escenario 2: Activar el ahorro por cuenta propia
+Scenario: Activar el ahorro por cuenta propia
 Given que el usuario quiere cuidar sus datos móviles
 And activa la opción de ahorro en la configuración
 When navega por las diferentes partes de la aplicación
@@ -38,7 +38,7 @@ And usa solo letras y números para gastar lo mínimo de megas
 # - Visualización basada en letras y números
 # - Reducción del consumo de megas durante el uso de la aplicación
 
-Scenario: Escenario 3: Actualizar datos sin gastar batería ni megas
+Scenario: Actualizar datos sin gastar batería ni megas
 Given que el ahorro de datos está prendido
 And el usuario tiene la aplicación abierta en el bolsillo
 When la aplicación intenta buscar información nueva del aire

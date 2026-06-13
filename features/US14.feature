@@ -4,7 +4,7 @@ Como estudiante universitario
 Quiero comparar el tiempo estimado frente a la calidad del aire
 Para decidir si priorizo llegar rápido o cuidar mis pulmones
 
-Scenario: Escenario 1: Comparación directa en pantalla
+Scenario: Comparación directa en pantalla
 Given que el usuario busca ir a la universidad
 And el sistema encuentra varias opciones de vías
 When se muestran los resultados finales
@@ -20,7 +20,7 @@ And detalla la diferencia de tiempo versus la toxicidad
 # - Tarjeta comparativa mostrada en pantalla
 # - Diferencia entre tiempo de llegada y nivel de toxicidad
 
-Scenario: Escenario 2: Elección de ruta rápida
+Scenario: Elección de ruta rápida
 Given que el usuario está muy apurado por una clase
 And decide tomar la ruta más rápida disponible
 When selecciona la opción veloz
@@ -36,7 +36,7 @@ And recomienda usar mascarilla por la alta contaminación
 # - Inicio inmediato de la navegación
 # - Recomendación de usar mascarilla por contaminación elevada
 
-Scenario: Escenario 3: Elección de ruta saludable
+Scenario: Elección de ruta saludable
 Given que el usuario prioriza su bienestar físico
 And no tiene apuro para llegar a su destino
 When selecciona la ruta con menor nivel de contaminación

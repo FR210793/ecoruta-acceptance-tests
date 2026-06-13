@@ -4,7 +4,7 @@ Como usuario sensible a la contaminación
 Quiero configurar alertas
 Para recibir una notificación cuando el aire sea no saludable en mi zona
 
-Scenario: Escenario 1: Configuración de alerta crítica
+Scenario: Configuración de alerta crítica
 Given que el usuario activa las notificaciones de la aplicación en ajustes
 And define un nivel máximo de alerta de 100 AQI
 When los sensores detectan que el aire llega a ese punto
@@ -20,7 +20,7 @@ And muestra un icono de advertencia en la barra de estado
 # - Notificación de alerta inmediata enviada al usuario
 # - Icono de advertencia mostrado en la barra de estado
 
-Scenario: Escenario 2: Alerta de vuelta a la normalidad
+Scenario: Alerta de vuelta a la normalidad
 Given que el aire estuvo en nivel dañino previamente
 And el usuario tiene las alertas de mejora activadas
 When el AQI baja a un nivel saludable
@@ -36,7 +36,7 @@ And sugiere que ya es seguro realizar actividades fuera
 # - Aviso de aire limpio enviado al usuario
 # - Sugerencia para realizar actividades fuera de forma segura
 
-Scenario: Escenario 3: Silenciar alertas temporalmente
+Scenario: Silenciar alertas temporalmente
 Given que el usuario está en una reunión importante
 And pulsa la opción de "No molestar" en la aplicación
 When ocurre un cambio brusco en la calidad del aire
