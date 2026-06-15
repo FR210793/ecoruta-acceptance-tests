@@ -1,80 +1,74 @@
-# language: es
-Funcionalidad: Recomendaciones de horarios para padres
-  Como padre de familia
-  Quiero recibir recomendaciones de horarios para salir con mis hijos
-  Para evitar exposición a aire contaminado
+Feature: Reporte de zonas contaminadas
 
-  Escenario 1: Planificación Preventiva
-    Dado que planeo salir con mis hijos
-    Y la app tiene registro de niveles de contaminación por horario
-    Cuando consulto el horario recomendado
-    Entonces EcoRuta me sugiere rutas y franjas horarias seguras
-    Y muestra alertas de posibles zonas a evitar
+Como usuario de EcoRuta
+Quiero reportar zonas con humo o tráfico pesado
+Para que otros usuarios reciban alertas en tiempo real
 
-    # INPUT
-    Entrada:
-      | Campo | Valor |
-      | Usuario | Carolina (madre) |
-      | Hijos | 2 (sensibles a contaminación) |
-      | Plan | Ir al parque |
-      | Horarios evaluados | 08:00, 14:00, 17:00 |
-      | Ubicación actual | San Isidro |
-      | Destino | Parque El Olivar |
+Scenario: Generación de Reporte Comunitario
 
-    # OUTPUT
-    Salida esperada:
-      | Horario recomendado | 08:00-09:30 |
-      | Calidad del aire | AQI 22 (😊 Saludable) |
-      | Rutas sugeridas | 3 opciones seguras |
-      | Zona a evitar | Av. Arequipa (AQI 68) |
-      | Mensaje | "Excelente horario para disfrutar en familia" |
-      | Detalles | PM2.5 bajo, Polen bajo |
+Given que detecto una zona con alta contaminación
+And quiero avisar a la comunidad
+When pulso el botón "Reportar" en la app
+Then EcoRuta actualiza el mapa de color
+And otros usuarios reciben notificación inmediata
 
-  Escenario 2: Validación de Trayecto Seguro
-    Dado que sigo la recomendación de la app
-    Y realizo el inicio de la ruta en horario seguro
-    Cuando paso por las rutas indicadas
-    Entonces EcoRuta indica que tengo condiciones favorables
-    Y se registra que minimicé exposición a contaminación
+# INPUT:
+# - Usuario: Luis (corredor)
+# - Ubicación: Av. Paseo de la República, Lima
+# - Tipo de contaminación: Humo visible (posible incendio)
+# - Severidad: Alta (AQI estimado > 150)
+# - Hora del reporte: 12:45
+# - Descripción: "Congestión vehicular + humo de vehículos"
 
-    # INPUT
-    Entrada:
-      | Campo | Valor |
-      | Usuario | Carolina (madre) |
-      | Ruta seleccionada | Ruta recomendada por app |
-      | Horario inicio | 08:00 (seguro) |
-      | Acompañantes | 2 hijos |
-      | Paradas | 3 parques menores |
+# OUTPUT:
+# - Confirmación: "Reporte enviado"
+# - Mapa actualizado: Zona marcada en rojo
+# - Notificación comunitaria: Otros usuarios en zona reciben alerta
+# - Durabilidad: Reporte válido por 2 horas
+# - Puntos: Usuario gana +30 puntos eco
+# - Visibilidad: Reporte visible en mapa para todos
 
-    # OUTPUT
-    Salida esperada:
-      | Confirmación en tiempo real | "Trayecto seguro en curso" |
-      | Indicadores | Verde (AQI saludable) |
-      | Notificación | "Condiciones favorables para tus hijos" |
-      | Registro | Minimicé exposición: ✅ |
-      | Estado de ruta | Se registra éxito del reporte |
+Scenario: Alerta de Proximidad a Zona Reportada
 
-  Escenario 3: Respuesta ante Riesgo en Tiempo Real
-    Dado que ignoro la recomendación
-    Y salgo a la ruta habitual
-    Cuando me acerco a zonas críticas
-    Entonces EcoRuta genera alerta en tiempo real
-    Y me muestra rutas alternativas para minimizar riesgo
+Given que un usuario reporta una zona crítica
+And yo estoy en ruta cercana
+When la app me alerta de la zona
+Then puedo elegir ruta alternativa
+And la app registra mi decisión
 
-    # INPUT
-    Entrada:
-      | Campo | Valor |
-      | Usuario | Carolina |
-      | Horario seleccionado | 14:00 (no recomendado) |
-      | Zona actual | Cercana a Av. Abancay (AQI 78) |
-      | Acompañantes | 2 hijos con sensibilidad |
-      | Distancia a zona crítica | 800 metros |
+# INPUT:
+# - Usuario: Miguel
+# - Ubicación actual: 600m de la zona reportada
+# - Zona reportada: Av. Paseo de la República (AQI 165)
+# - Ruta en progreso: En curso
+# - Tiempo hasta zona: 4 minutos
 
-    # OUTPUT
-    Salida esperada:
-      | Alerta | ⚠️ "Riesgo para menores detectado" |
-      | Causa | Zona con AQI 78 cerca de tu ubicación |
-      | Recomendación urgente | "Cambiar ruta ahora" |
-      | Rutas alternativas | 2 opciones disponibles |
-      | Botones | "Desviar" / "Continuar con cuidado" |
-      | Mensaje adicional | "Tus hijos están en grupo de riesgo" |
+# OUTPUT:
+# - Notificación: "Zona reportada cerca: Av. Paseo de la República"
+# - Detalles: "Un usuario reportó congestión y humo"
+# - Opciones: "Ver alternativas" / "Continuar ruta"
+# - Ruta alternativa: Sugerida automáticamente
+# - Acción registrada: Sistema registra decisión del usuario
+
+Scenario: Normalización de la Ruta
+
+Given que el reporte fue enviado
+And la zona se vuelve segura o menos contaminada
+When el sistema valida la información con sensores y reportes posteriores
+Then se elimina alerta temporal
+And se notifica a usuarios que la ruta es ahora segura
+
+# INPUT:
+# - Reporte original: Zona crítica - Av. Paseo de la República
+# - Hora del reporte: 12:45
+# - Validación: Sensores actualizados + 3 reportes posteriores
+# - Nueva medición AQI: 45 (saludable)
+# - Tiempo transcurrido: 90 minutos
+
+# OUTPUT:
+# - Alerta eliminada: Zona ya no crítica
+# - Notificación: "Condiciones mejoraron en Av. Paseo"
+# - Mapa actualizado: Zona cambia de rojo a verde
+# - Usuarios notificados: Todos los usuarios activos en zona
+# - Reporte original: Marcado como "Resuelto"
+# - Punto de cierre: "Zona normalizó gracias a reportes comunitarios"
