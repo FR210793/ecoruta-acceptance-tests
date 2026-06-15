@@ -1,9 +1,7 @@
 Feature: Calificación de rutas
 
 Como usuario urbano
-
 Quiero calificar rutas recomendadas por otros
-
 Para ayudar a la comunidad a identificar rutas confiables
 
 Scenario: Retroalimentación del Usuario
